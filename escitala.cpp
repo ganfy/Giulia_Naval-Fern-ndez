@@ -1,36 +1,29 @@
 #include <iostream>
 #include <string>
-#include <math.h>
 using namespace std;
 
 char alfabeto[27];
-int gen_key(int size){
-  int key=ceil(float(size)/6)*10+6;
-  return key;
-}
 class Cripto {
-    int clave;
+    int clave[2]={6,9};
 public:
     void cifrado(string &msje) 
     {
-      clave=gen_key(msje.size());
-      string esp(((clave/10)*(clave%10)-msje.size()),' ');
+      string esp(((clave[0])*(clave[1])-msje.size()),' ');
       string aux=msje+esp;
       msje="";
-      for (int i = 0; i < clave%10; i++) {
-        for (int j = 0; j < clave/10; j++) {
-          msje = msje + aux[i + j*(clave%10)];
+      for (int i = 0; i < clave[1]; i++) {
+        for (int j = 0; j < clave[0]; j++) {
+          msje = msje + aux[i + j*(clave[1])];
           }
       }
     };
     void descifrado(string &msje) 
     {
-      clave=gen_key(msje.size());
       string aux=msje;
       msje = "";
-        for (int i = 0; i < clave/10; i++) {
-            for (int j = 0; j < clave%10; j++) {
-                msje = msje + aux[i + j*(clave/10)];
+        for (int i = 0; i < clave[0]; i++) {
+            for (int j = 0; j < clave[1]; j++) {
+                msje = msje + aux[i + j*(clave[0])];
             }
         }
     };
@@ -39,7 +32,7 @@ int main()
 {
     Cripto Emisor;
     Cripto Receptor;
-    string mensaje = "hola como estas";
+    string mensaje = "Me diste ganas de cambiarme de carrera";
     Emisor.cifrado(mensaje);
     cout << mensaje<<endl;
     Receptor.descifrado(mensaje);
