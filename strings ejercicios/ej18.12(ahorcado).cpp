@@ -18,6 +18,7 @@ int main(){
       }
       char l;
       cout<<"\n"<<pal_escondida<<endl;
+      cout<<"intentos previos: "<<intentos<<endl;
       cout<<"Ingrese una letra: "; cin>>l;
       intentos += l;
       int buscar = palabra.find_first_of(l);
