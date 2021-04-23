@@ -34,7 +34,10 @@ char más_frecuente(string msje){
 int Posible_clave(string msje, char pos_descif){
   char más_frec=más_frecuente(msje);
   int pos_clave=alfabeto.find(más_frec)-alfabeto.find(pos_descif);//diferencia entre la posición de la letra cifrada y su posible desciframiento 
-  return abs(pos_clave); //valor absoluto de esta diferencia por si es negativa
+  if (pos_clave<0){
+    return pos_clave+26;
+  }
+  return pos_clave; //valor absoluto de esta diferencia por si es negativa
 }
 
 void Criptoanálisis(string msje){
