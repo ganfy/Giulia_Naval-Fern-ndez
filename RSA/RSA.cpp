@@ -6,7 +6,7 @@
 using namespace std;
 using namespace NTL;
 
-string alfabeto="abcdefghijklmnopqrstuvwxz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+string alfabeto="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 class RSA {
   ZZ d,p,q,oN;
   public:
