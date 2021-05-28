@@ -164,17 +164,3 @@ ZZ GenPrimo(ZZ min, ZZ max){
         return p;
     }
 }
-
-int ReadFile() {
-	fstream datos;
-	datos.open("datos", ios::out);
-	if (!datos) {
-		cout << "File not created!";
-	}
-	else {
-		cout << "File created successfully!";
-		datos.close();
-	}
-	return 0;
-}
-
