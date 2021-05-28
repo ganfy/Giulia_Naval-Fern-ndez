@@ -1,14 +1,13 @@
 #include <iostream>
 using namespace std;
-int divi(int a, int n){
- if ((a-((a/n))*n)<0){
-   if (a<0 && n<0){
-     return (a-((a/n)+1)*n);
-   }
-   return (a-((a/n)-1)*n);
+
+int divi(int long a, int  n){//función módulo con restricción: n es positivo
+  int r=a-((a/n)*n);
+  if (r<0){
+  return r+n;
  }
- return (a-((a/n))*n);
+   return r;
 }
 int main() {
- cout <<divi(-255,-11);
+ cout <<divi(-255,11);
 }
