@@ -7,9 +7,11 @@
 #include <fstream>
 using namespace std;
 using namespace NTL;
-ZZ divi(ZZ a, ZZ n){//función módulo con restricción: n es positivo
+ZZ divi(ZZ a, ZZ n){
   ZZ r=a-((a/n)*n);
   if (r<0){
+      if (n<0)
+          return r-n;
   return r+n;
  }
    return r;
@@ -18,6 +20,8 @@ ZZ divi(ZZ a, ZZ n){//función módulo con restricción: n es positivo
 int divi(int a, int n){
   int r=a-((a/n)*n);
   if (r<0){
+        if (n<0)
+          return r-n;
   return r+n;
  }
    return r;
